@@ -22,6 +22,7 @@ Human and machine generated text often suffer from grammatical and/or typographi
 - [Dataset](#dataset)
 - [Note on commercial uses and release versions](#note-on-commercial-uses-and-release-versions)
 - [Benchmark](#benchmark)
+- [Streamlit Demo](#streamlit-demo)
 - [References](#references)
 - [How to cite Gramformer](#how-to-cite-gramformer)
 
@@ -278,6 +279,12 @@ TBD (I will benchmark grammformer models against the following publicy available
 - [salesken/grammar_correction](https://huggingface.co/salesken/grammar_correction), 
 - [Grammarly GECTOR](https://github.com/grammarly/gector) 
 - [flexudy/t5-small-wav2vec2-grammar-fixer](flexudy/t5-small-wav2vec2-grammar-fixer) shortly.
+
+## Streamlit Demo
+```
+pip install streamlit
+streamlit run streamlit_app.py
+```
 
 ## References
 

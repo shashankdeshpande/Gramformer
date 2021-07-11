@@ -26,6 +26,7 @@ class GramformerDemo:
             'Detector - coming soon': 2
             }
         self.examples = [
+            "what be the reason for everyone leave the comapny",
             "He are moving here.",
             "I am doing fine. How is you?",
             "How is they?",
@@ -36,15 +37,14 @@ class GramformerDemo:
             "I walk to the store and I bought milk",
             " We all eat the fish and then made dessert",
             "I will eat fish for dinner and drink milk",
-            "what be the reason for everyone leave the company",
             ]
 
     @st.cache(show_spinner=False, suppress_st_warning=True, allow_output_mutation=True)
-    def load_gf(self, model: int, use_gpu: bool):
+    def load_gf(self, model: int):
         """
             Load Gramformer model
         """
-        gf = Gramformer(models=model, use_gpu=use_gpu)
+        gf = Gramformer(models=model, use_gpu=False)
         return gf
     
     def show_highlights(self, gf: object, input_text: str, corrected_sentence: str):
@@ -104,9 +104,6 @@ class GramformerDemo:
             label='Choose Model',
             options=list(self.model_map.keys())
             )
-        use_gpu = st.sidebar.checkbox(
-            label='Use GPU ?'
-        )
         if model_type == 'Corrector':
             max_candidates = st.sidebar.number_input(
                 label='Max candidates',
@@ -120,7 +117,7 @@ class GramformerDemo:
             st.stop()
 
         with st.spinner('Loading model..'):
-            gf = self.load_gf(self.model_map[model_type], use_gpu)
+            gf = self.load_gf(self.model_map[model_type])
     
         input_text = st.selectbox(
             label="Choose an example",
